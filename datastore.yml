@@ -1,0 +1,13 @@
+---
+- action: "fetch client data"
+  comment: client data is required to build all the other data
+  driver:
+   datastore: datastore
+   query: "SELECT id, name, age FROM data WHERE name LIKE "
+   args:
+     - '$1'
+     - '$2'
+     - '$3'
+  class:
+    type: map
+    key: id
